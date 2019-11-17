@@ -20,3 +20,25 @@
 .App-link {
   color: #09d3ac;
 }
+
+/* Player.js CSS */
+
+.players {
+  display: flex;
+  justify-content: space-between;
+  font-size: 2rem;
+
+}
+
+.player {
+  width: 50%;
+  background-color: #09d3ac;
+}
+
+.active {
+  background-color:pink;
+}
+
+.inactive {
+
+}
