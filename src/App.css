@@ -42,3 +42,21 @@
 .inactive {
 
 }
+
+/* Box.js CSS */
+
+.box {
+  border: 3px solid black;
+  width: 6rem;
+  height: 6rem;
+}
+
+/* Game.js CSS */
+.row {
+  display: flex;
+}
+
+.game {
+  margin-left: 35%;
+  margin-right: 35%;
+}
