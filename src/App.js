@@ -1,24 +1,26 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import box from './components/box'
+import game from './components/game'
+import players from './components/players'
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     <p>Hello Wurld c:</p>
+    
+     <div className="top-left"></div>
+     <div className="top-middle"></div>
+     <div className="top-right"></div>
+
+     <div classname="middle-left"></div>
+     <div className="middle"></div>
+     <div className="middle-right"></div>
+
+     <div className="bottom=left"></div>
+     <div className="bottom-middle"></div>
+     <div className="bottom-right"></div>
+
     </div>
   );
 }
