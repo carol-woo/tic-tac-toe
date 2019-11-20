@@ -1,14 +1,15 @@
 import React, {useState} from 'react';
 import styled, {keyframes} from 'styled-components'
-import {bounceIn} from 'react-animations'
+import {bounce} from 'react-animations'
 import './App.css';
 import Box from './components/Box'
 import Game from './components/Game'
 import Players from './components/Players'
 
-const bounceAnimation = keyframes`${bounceIn}`;
+const bounceAnimation = keyframes`${bounce}`;
  const BouncyDiv = styled.div`
-  animation: 2s ${bounceAnimation}; 
+  animation: 4s ${bounceAnimation}
+  infinite; 
 `;
 
 
@@ -50,6 +51,7 @@ function App() {
       ]
     )
   }
+
 
 // //Implement this...somehow. And make it dry, oh god. Its so much code :^(
 function win(){
@@ -97,9 +99,9 @@ function win(){
 
   return (
     <div className="App">
-      <BouncyDiv><h1>Tic-Tac-Toe</h1></BouncyDiv>
-      <Players currentPlayer={player} background={colour} background2={colour2}/>
-      <p className="win">{win()}</p>
+      <h1>Tic-Tac-Toe</h1>
+      <Players currentPlayer={player} background={colour} background2={colour2} />
+      <BouncyDiv><p className="win">{win()}</p></BouncyDiv>
       <Game grid={grid} makeMove={makeMove} />
       <button onClick={restartGame}>Restart Game?</button>
     </div>
