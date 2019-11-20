@@ -7,10 +7,11 @@ import Game from './components/Game'
 import Players from './components/Players'
 
 const bounceAnimation = keyframes`${bounceIn}`;
- 
-const BouncyDiv = styled.div`
+ const BouncyDiv = styled.div`
   animation: 2s ${bounceAnimation}; 
 `;
+
+
 function App() {
   const [grid, setMove] = useState([
     ['','',''],
@@ -64,24 +65,31 @@ function win(){
   let diag1 = [grid[0][0],grid[1][1],grid[2][2]]
   let diag2 = [grid[2][0],grid[1][1],grid[0][2]]
   
+  //Checking Rows
   if(grid[0].every(theSameX) || grid[0].every(theSameO)){
     return winner
   }else if(grid[1].every(theSameX) || grid[1].every(theSameO)){
     return winner
   }else if(grid[2].every(theSameX) || grid[2].every(theSameO)){
     return winner
-  }else if(column0.every(theSameX) || column0.every(theSameO)){
+  }
+  //Checking Columns
+  else if(column0.every(theSameX) || column0.every(theSameO)){
     return winner
   }else if(column1.every(theSameX) || column1.every(theSameO)){
     return winner
   }else if(column2.every(theSameX) || column2.every(theSameO)){
     return winner
-  }else if(diag1.every(theSameX) || diag1.every(theSameO)){
+  }
+  //Checking Diagonals
+  else if(diag1.every(theSameX) || diag1.every(theSameO)){
     return winner
   }else if(diag2.every(theSameX) || diag2.every(theSameO)){
     return winner
-  } else {
-  return <p> You're up {player}!</p>
+  } 
+  //If none match, then return the player who is up next
+  else {
+  return <p className="win"> You're up {player}!</p>
   } 
 }
 
