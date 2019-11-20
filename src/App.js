@@ -56,7 +56,7 @@ function win(){
   const theSameX = (currentValue) => currentValue === 'x'
   const theSameO = (currentValue) => currentValue === 'o'
 
-  let winner = <p>~~~~~~~You win {player}!~~~~~~~</p>
+  let winner = <p className="win">!!!You win {player}!!!</p>
 
   let column0 = [grid[0][0],grid[1][0],grid[2][0]]
   let column1 = [grid[0][1],grid[1][1],grid[2][1]]
@@ -99,7 +99,7 @@ function win(){
     <div className="App">
       <BouncyDiv><h1>Tic-Tac-Toe</h1></BouncyDiv>
       <Players currentPlayer={player} background={colour} background2={colour2}/>
-      <div className="win">{win()}</div>
+      <p className="win">{win()}</p>
       <Game grid={grid} makeMove={makeMove} />
       <button onClick={restartGame}>Restart Game?</button>
     </div>
