@@ -8,8 +8,8 @@ export default function Game(props) {
     <div className='game'>
       {props.grid.map((item, index) => 
       <div className='row'>
-        {item.map((b,id) => <Box key={id} value={b} row={index} column={id} makeMove={props.makeMove} win={props.win}/>)}
-        </div>
+        {item.map((b,id) => <Box key={id} value={b} row={index} column={id} makeMove={props.makeMove} win={props.win} grid={props.grid}/>)}
+      </div>
       )}
     </div>
   )

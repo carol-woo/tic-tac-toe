@@ -6,7 +6,6 @@ export default function Box(props){
     props.makeMove(props.row, props.column)
     }
   }
-
   return(
     <div className='box' onClick={move}>
      <p className='value'> {props.value} </p>

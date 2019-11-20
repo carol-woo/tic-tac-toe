@@ -1,14 +1,13 @@
-import React, {useState} from 'react';
+import React, {useState, Fragment} from 'react';
 import styled, {keyframes} from 'styled-components'
-import {bounce} from 'react-animations'
+import {pulse} from 'react-animations'
 import './App.css';
-import Box from './components/Box'
 import Game from './components/Game'
 import Players from './components/Players'
 
-const bounceAnimation = keyframes`${bounce}`;
- const BouncyDiv = styled.div`
-  animation: 4s ${bounceAnimation}
+const pulseAnimation = keyframes`${pulse}`;
+ const PulseDiv = styled.div`
+  animation: 1.5s ${pulseAnimation}
   infinite; 
 `;
 
@@ -38,7 +37,6 @@ function App() {
       setPlayer('Player 1')
       setColour(' active')
       setColour2(' inactive')
-
     }
   }
 
@@ -58,7 +56,7 @@ function win(){
   const theSameX = (currentValue) => currentValue === 'x'
   const theSameO = (currentValue) => currentValue === 'o'
 
-  let winner = <p className="win">!!!You win {player}!!!</p>
+  let winner = <PulseDiv><p className="win">!!!You win {player}!!!</p></PulseDiv> 
 
   let column0 = [grid[0][0],grid[1][0],grid[2][0]]
   let column1 = [grid[0][1],grid[1][1],grid[2][1]]
@@ -91,7 +89,12 @@ function win(){
   } 
   //If none match, then return the player who is up next
   else {
-  return <p className="win"> You're up {player}!</p>
+  return (
+    <Fragment>
+    <PulseDiv><p className="win"> You're up {player}!</p></PulseDiv>
+    <Game grid={grid} makeMove={makeMove} />
+    </Fragment>
+  )
   } 
 }
 
@@ -101,8 +104,7 @@ function win(){
     <div className="App">
       <h1>Tic-Tac-Toe</h1>
       <Players currentPlayer={player} background={colour} background2={colour2} />
-      <BouncyDiv><p className="win">{win()}</p></BouncyDiv>
-      <Game grid={grid} makeMove={makeMove} />
+      <p className="win">{win()}</p>
       <button onClick={restartGame}>Restart Game?</button>
     </div>
   );
